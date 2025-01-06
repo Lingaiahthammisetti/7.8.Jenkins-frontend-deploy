@@ -44,7 +44,7 @@ resource "null_resource" "frontend" {
 resource "aws_ec2_instance_state" "frontend" {
   instance_id = module.frontend.id
   state       = "stopped"
-  #stop the server only when null resource provisioning is completed.connection {
+  #stop the server only when null resource provisioning is completed.
     depends_on = [ null_resource.frontend ]
   }
 
@@ -103,7 +103,7 @@ resource "aws_launch_template" "frontend" {
   tags = merge(
         var.common_tags,
         {
-            name    ="${var.project_name}-${var.environment}-${var.common_tags.Component}"
+            Name    ="${var.project_name}-${var.environment}-${var.common_tags.Component}"
         }
     ) 
   }
